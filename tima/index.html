@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Детский фитнес-план для мальчика 10 лет</title>
+    <title>Фитнес-план для бейсболиста 10 лет</title>
     <style>
         * {
             margin: 0;
@@ -72,6 +72,81 @@
             border-radius: 15px;
             font-weight: bold;
             font-size: 0.8rem;
+        }
+
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .day-card {
+            background: #E3F2FD;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            border: 2px solid #2196F3;
+        }
+
+        .day-card.baseball {
+            background: #FFF3E0;
+            border-color: #FF9800;
+        }
+
+        .day-card.rest {
+            background: #E8F5E8;
+            border-color: #4CAF50;
+        }
+
+        .day-card.workout {
+            background: #FCE4EC;
+            border-color: #E91E63;
+        }
+
+        .warmup-cooldown-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .warmup-cooldown-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .warmup-section, .cooldown-section {
+            background: #F1F8E9;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #2196F3;
+        }
+
+        .cooldown-section {
+            border-left-color: #4CAF50;
+        }
+
+        .exercise-list {
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        .exercise-list li {
+            padding: 6px 0;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .exercise-time {
+            background: #2196F3;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 8px;
+            font-size: 0.7rem;
         }
 
         .age-warning {
@@ -253,32 +328,105 @@
 <body>
 <div class="container">
     <header>
-        <h1>🏃‍♂️ Фитнес-приключение для 10 лет</h1>
-        <p class="subtitle">Веселые и безопасные тренировки для юного спортсмена!</p>
+        <h1>⚾ Фитнес-план для бейсболиста 10 лет</h1>
+        <p class="subtitle">Сила + скорость + координация для чемпиона!</p>
     </header>
 
-    <div class="age-warning">
-        <h3>⚠️ Важно для родителей!</h3>
-        <p><strong>Тренировки для детей 10 лет должны быть:</strong><br>
-            • Безопасными • Короткими • Веселыми • Без тяжелых весов</p>
-    </div>
-
-    <!-- Базовый план -->
+    <!-- Расписание -->
     <div class="training-plan">
         <div class="plan-header">
-            <h2>🎯 Базовая тренировка (2-3 раза в неделю)</h2>
+            <h2>🗓️ Недельное расписание</h2>
+            <span class="plan-badge">С учетом бейсбола</span>
+        </div>
+
+        <div class="schedule-grid">
+            <div class="day-card workout">
+                <strong>ПОНЕДЕЛЬНИК</strong>
+                <p>✅ Силовая тренировка</p>
+                <small>20-30 минут</small>
+            </div>
+            <div class="day-card baseball">
+                <strong>ВТОРНИК</strong>
+                <p>⚾ Бейсбол 2ч + 🧘 Растяжка</p>
+            </div>
+            <div class="day-card workout">
+                <strong>СРЕДА</strong>
+                <p>✅ Силовая тренировка</p>
+                <small>20-30 минут</small>
+            </div>
+            <div class="day-card baseball">
+                <strong>ЧЕТВЕРГ</strong>
+                <p>⚾ Бейсбол 2ч + 🧘 Заминка</p>
+            </div>
+            <div class="day-card baseball">
+                <strong>ПЯТНИЦА</strong>
+                <p>⚾ Бейсбол 2ч + 🚶 Восстановление</p>
+            </div>
+            <div class="day-card rest">
+                <strong>СУББОТА</strong>
+                <p>🚴 Активный отдых</p>
+                <small>Велосипед, игры</small>
+            </div>
+            <div class="day-card rest">
+                <strong>ВОСКРЕСЕНЬЕ</strong>
+                <p>🛌 Полный отдых</p>
+                <small>Восстановление</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- Разминка и заминка -->
+    <div class="training-plan">
+        <div class="plan-header">
+            <h2>🔥 Разминка и 🧘 Заминка</h2>
+            <span class="plan-badge">Обязательно!</span>
+        </div>
+
+        <div class="warmup-cooldown-grid">
+            <div class="warmup-section">
+                <h3>🎯 Разминка (5-7 минут)</h3>
+                <p><em>Перед ЛЮБОЙ тренировкой и игрой</em></p>
+                <ul class="exercise-list">
+                    <li>Бег на месте <span class="exercise-time">1 мин</span></li>
+                    <li>Вращения руками <span class="exercise-time">30 сек</span></li>
+                    <li>Вращения туловищем <span class="exercise-time">30 сек</span></li>
+                    <li>Махи ногами <span class="exercise-time">1 мин</span></li>
+                    <li>Прыжки "звездочка" <span class="exercise-time">1 мин</span></li>
+                    <li>Легкая растяжка <span class="exercise-time">2 мин</span></li>
+                </ul>
+            </div>
+
+            <div class="cooldown-section">
+                <h3>🧘 Заминка (5 минут)</h3>
+                <p><em>После ЛЮБОЙ тренировки и игры</em></p>
+                <ul class="exercise-list">
+                    <li>Медленная ходьба <span class="exercise-time">1 мин</span></li>
+                    <li>Растяжка рук и плеч <span class="exercise-time">1 мин</span></li>
+                    <li>Растяжка ног <span class="exercise-time">1 мин</span></li>
+                    <li>Растяжка спины <span class="exercise-time">1 мин</span></li>
+                    <li>Глубокое дыхание <span class="exercise-time">1 мин</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Силовая тренировка -->
+    <div class="training-plan">
+        <div class="plan-header">
+            <h2>💪 Силовая тренировка (пн/ср)</h2>
             <span class="plan-badge">20-30 минут</span>
         </div>
 
-        <div class="game-element">
-            <strong>🎮 Игровой элемент:</strong> Представь, что ты супергерой, готовящийся к подвигу!
+        <div class="age-warning">
+            <strong>⚡ Особое внимание для бейсболиста:</strong><br>
+            Укрепляем мышцы для броска, бега и удара!
         </div>
 
         <div class="accordion">
             <!-- Упражнение 1 -->
             <div class="accordion-item">
                 <div class="accordion-header">
-                    <div class="accordion-title">🦎 Ящеричные подтягивания (облегченные)</div>
+                    <div class="accordion-title">🎯 Подтягивания для сильного броска</div>
                     <div class="accordion-icon"></div>
                 </div>
                 <div class="accordion-content">
@@ -289,28 +437,24 @@
                             <p><strong>Повторения:</strong> 3-5 раз</p>
                             <p><strong>Отдых:</strong> 60 секунд</p>
 
-                            <h4>💪 Что качаем:</h4>
+                            <h4>💪 Для бейсбола:</h4>
                             <div class="muscle-group">
                                 <span class="muscle-tag">Спина</span>
-                                <span class="muscle-tag">Руки</span>
                                 <span class="muscle-tag">Плечи</span>
+                                <span class="muscle-tag">Сила броска</span>
                             </div>
 
                             <div class="exercise-image">
-                                🦎 Ящеричные подтягивания<br>
-                                (С поддержкой папы/мамы)
+                                🎯 Подтягивания<br>
+                                (С поддержкой)
                             </div>
                         </div>
                         <div class="exercise-tips">
                             <h4>🎯 Техника:</h4>
-                            <p>Папа/мама поддерживают за ноги. Подтягивайся, пока подбородок не окажется над перекладиной.</p>
+                            <p>Медленно подтягивайся, представляя, что бросаешь мяч.</p>
 
                             <div class="fun-factor">
-                                <strong>🎪 Весело:</strong> Представь, что ты обезьянка на лиане!
-                            </div>
-
-                            <div class="warning">
-                                <strong>⚠️ Стоп!</strong> Не раскачивайся и не делай резких движений.
+                                <strong>⚾ Бейсбол-секрет:</strong> Сильная спина = дальний бросок!
                             </div>
                         </div>
                     </div>
@@ -320,7 +464,7 @@
             <!-- Упражнение 2 -->
             <div class="accordion-item">
                 <div class="accordion-header">
-                    <div class="accordion-title">🐆 Отжимания кошки (с колен)</div>
+                    <div class="accordion-title">💨 Отжимания для скорости удара</div>
                     <div class="accordion-icon"></div>
                 </div>
                 <div class="accordion-content">
@@ -331,28 +475,24 @@
                             <p><strong>Повторения:</strong> 5-8 раз</p>
                             <p><strong>Отдых:</strong> 45 секунд</p>
 
-                            <h4>💪 Что качаем:</h4>
+                            <h4>💪 Для бейсбола:</h4>
                             <div class="muscle-group">
                                 <span class="muscle-tag">Грудь</span>
-                                <span class="muscle-tag">Плечи</span>
                                 <span class="muscle-tag">Руки</span>
+                                <span class="muscle-tag">Сила удара</span>
                             </div>
 
                             <div class="exercise-image">
-                                🐆 Отжимания кошки<br>
-                                (На коленях - безопасно!)
+                                💨 Отжимания<br>
+                                (На коленях)
                             </div>
                         </div>
                         <div class="exercise-tips">
                             <h4>🎯 Техника:</h4>
-                            <p>Стоя на коленях, медленно опускайся и поднимайся. Спина прямая!</p>
+                            <p>Быстро отжимайся вверх - медленно вниз.</p>
 
                             <div class="fun-factor">
-                                <strong>🎪 Весело:</strong> Представь, что ты котенок, который потягивается!
-                            </div>
-
-                            <div class="warning">
-                                <strong>⚠️ Стоп!</strong> Не прогибай спину и не касайся головой пола.
+                                <strong>⚾ Бейсбол-секрет:</strong> Сильные руки = мощный удар по мячу!
                             </div>
                         </div>
                     </div>
@@ -362,7 +502,7 @@
             <!-- Упражнение 3 -->
             <div class="accordion-item">
                 <div class="accordion-header">
-                    <div class="accordion-title">🐸 Лягушачьи приседания</div>
+                    <div class="accordion-title">🏃‍♂️ Приседания для быстрого бега</div>
                     <div class="accordion-icon"></div>
                 </div>
                 <div class="accordion-content">
@@ -373,70 +513,24 @@
                             <p><strong>Повторения:</strong> 8-12 раз</p>
                             <p><strong>Отдых:</strong> 45 секунд</p>
 
-                            <h4>💪 Что качаем:</h4>
+                            <h4>💪 Для бейсбола:</h4>
                             <div class="muscle-group">
                                 <span class="muscle-tag">Ноги</span>
-                                <span class="muscle-tag">Попа</span>
-                                <span class="muscle-tag">Спина</span>
+                                <span class="muscle-tag">Скорость</span>
+                                <span class="muscle-tag">База</span>
                             </div>
 
                             <div class="exercise-image">
-                                🐸 Лягушачьи приседания<br>
-                                (Без веса - только тело!)
+                                🏃‍♂️ Приседания<br>
+                                (Быстрые ноги!)
                             </div>
                         </div>
                         <div class="exercise-tips">
                             <h4>🎯 Техника:</h4>
-                            <p>Приседай, отводя попу назад. Руки вперед для равновесия.</p>
+                            <p>Приседай быстро - вставай взрывно!</p>
 
                             <div class="fun-factor">
-                                <strong>🎪 Весело:</strong> Квакай как лягушка при каждом приседании!
-                            </div>
-
-                            <div class="warning">
-                                <strong>⚠️ Стоп!</strong> Колени не должны выходить за носки.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Упражнение 4 -->
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <div class="accordion-title">🦥 Ленивая планка</div>
-                    <div class="accordion-icon"></div>
-                </div>
-                <div class="accordion-content">
-                    <div class="exercise-detail">
-                        <div class="exercise-info">
-                            <h4>📊 Как делать:</h4>
-                            <p><strong>Подходы:</strong> 2-3</p>
-                            <p><strong>Время:</strong> 15-30 секунд</p>
-                            <p><strong>Отдых:</strong> 30 секунд</p>
-
-                            <h4>💪 Что качаем:</h4>
-                            <div class="muscle-group">
-                                <span class="muscle-tag">Животик</span>
-                                <span class="muscle-tag">Спина</span>
-                                <span class="muscle-tag">Все тело</span>
-                            </div>
-
-                            <div class="exercise-image">
-                                🦥 Ленивая планка<br>
-                                (На коленях - легко!)
-                            </div>
-                        </div>
-                        <div class="exercise-tips">
-                            <h4>🎯 Техника:</h4>
-                            <p>Стоя на коленях и локтях, держи тело прямо. Не поднимай попу!</p>
-
-                            <div class="fun-factor">
-                                <strong>🎪 Весело:</strong> Считай вслух до 20 - это твое задание!
-                            </div>
-
-                            <div class="warning">
-                                <strong>⚠️ Стоп!</strong> Не задерживай дыхание - дыши ровно.
+                                <strong>⚾ Бейсбол-секрет:</strong> Сильные ноги = быстрый бег по базам!
                             </div>
                         </div>
                     </div>
@@ -445,50 +539,40 @@
         </div>
     </div>
 
-    <!-- Игровые тренировки -->
+    <!-- Рекомендации после бейсбола -->
     <div class="training-plan">
         <div class="plan-header">
-            <h2>🎮 Веселые игровые тренировки</h2>
-            <span class="plan-badge">Ежедневно!</span>
+            <h2>⚾ Что делать после бейсбола</h2>
+            <span class="plan-badge">ВТ, ЧТ, ПТ</span>
         </div>
 
-        <div class="game-element">
-            <h3>🏀 Спортивные игры (30-40 минут):</h3>
-            <p>• Футбол ⚽ • Баскетбол 🏀 • Плавание 🏊‍♂️ • Езда на велосипеде 🚴‍♂️</p>
-        </div>
+        <div class="warmup-cooldown-grid">
+            <div class="warmup-section">
+                <h3>🎯 После игры (5 минут)</h3>
+                <ul class="exercise-list">
+                    <li>Растяжка бросающей руки <span class="exercise-time">1 мин</span></li>
+                    <li>Растяжка плеч <span class="exercise-time">1 мин</span></li>
+                    <li>Растяжка ног <span class="exercise-time">1 мин</span></li>
+                    <li>Массаж предплечья <span class="exercise-time">1 мин</span></li>
+                    <li>Холодный компресс (если устало) <span class="exercise-time">1 мин</span></li>
+                </ul>
+            </div>
 
-        <div class="game-element">
-            <h3>🤸‍♂️ Полоса препятствий дома:</h3>
-            <p>• Пройти под стульями 🪑 • Перепрыгнуть подушки 🛏️<br>
-                • Проползти тоннель из одеял 🛌 • Пройти по линии 🎯</p>
-        </div>
-    </div>
-
-    <!-- Важные правила -->
-    <div class="training-plan">
-        <div class="plan-header">
-            <h2>📋 Золотые правила для родителей</h2>
-            <span class="plan-badge">Важно!</span>
-        </div>
-
-        <div class="age-warning">
-            <h3>✅ Что МОЖНО:</h3>
-            <p>• Тренироваться 2-3 раза в неделю по 20-30 минут<br>
-                • Играть в спортивные игры ежедневно<br>
-                • Делать упражнения с весом собственного тела<br>
-                • Ходить на плавание, единоборства, гимнастику</p>
-
-            <h3>❌ Что НЕЛЬЗЯ:</h3>
-            <p>• Поднимать тяжелые веса (гантели, штанги)<br>
-                • Тренироваться до изнеможения<br>
-                • Делать упражнения через боль<br>
-                • Пропускать разминку и заминку</p>
+            <div class="cooldown-section">
+                <h3>💤 Восстановление</h3>
+                <ul class="exercise-list">
+                    <li>Пить воду <span class="exercise-time">Сразу!</span></li>
+                    <li>Здоровый перекус <span class="exercise-time">Через 30 мин</span></li>
+                    <li>Сон 9-10 часов <span class="exercise-time">Обязательно</span></li>
+                    <li>Не сидеть в телефоне <span class="exercise-time">1 час после</span></li>
+                </ul>
+            </div>
         </div>
     </div>
 
     <footer>
-        <p>🌟 Главное - чтобы тренировки приносили радость и пользу! 🌟</p>
-        <p style="margin-top: 10px;">© Веселый фитнес для детей</p>
+        <p>⚾ Сильный бейсболист = сильное тело + умный отдых! ⚾</p>
+        <p style="margin-top: 10px;">© План для чемпиона</p>
     </footer>
 </div>
 
