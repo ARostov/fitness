@@ -78,6 +78,144 @@
             font-size: 0.9rem;
         }
 
+        /* Стили для аккордеона */
+        .accordion {
+            margin: 25px 0;
+        }
+
+        .accordion-item {
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            overflow: hidden;
+            border: 1px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-item:hover {
+            border-color: #1a2a6c;
+        }
+
+        .accordion-header {
+            padding: 20px;
+            background: white;
+            cursor: pointer;
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            background: #f8f9fa;
+        }
+
+        .accordion-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1a2a6c;
+            flex-grow: 1;
+        }
+
+        .accordion-icon {
+            width: 20px;
+            height: 20px;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-icon::before,
+        .accordion-icon::after {
+            content: '';
+            position: absolute;
+            background: #1a2a6c;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-icon::before {
+            width: 100%;
+            height: 2px;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+
+        .accordion-icon::after {
+            width: 2px;
+            height: 100%;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+        }
+
+        .accordion-item.active .accordion-icon::after {
+            transform: translateX(-50%) rotate(90deg);
+            opacity: 0;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background: white;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 1000px;
+            padding: 20px;
+        }
+
+        .exercise-detail {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .exercise-detail {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .exercise-info, .exercise-tips {
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .exercise-info h4, .exercise-tips h4 {
+            color: #1a2a6c;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .muscle-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .muscle-tag {
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            border: 1px solid #bbdefb;
+        }
+
+        .warning {
+            background: #ffebee;
+            color: #c62828;
+            padding: 10px;
+            border-radius: 6px;
+            margin-top: 10px;
+            border-left: 3px solid #c62828;
+            font-size: 0.9rem;
+        }
+
         .warmup-cooldown-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -250,6 +388,7 @@
             </div>
         </div>
 
+        <!-- План "Фундамент" с аккордеоном -->
         <div class="training-plan">
             <div class="plan-header">
                 <h2>🏋️ План «Фундамент» (Версия 42+)</h2>
@@ -258,182 +397,124 @@
             
             <p>Круговая тренировка всего тела. Выполняйте упражнения одно за другим, затем отдохните 2-3 минуты и повторите круг.</p>
             
-            <table class="exercise-table">
-                <thead>
-                    <tr>
-                        <th>Упражнение</th>
-                        <th>Подходы</th>
-                        <th>Повторения</th>
-                        <th>Особенности для 42+</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Горизонтальные подтягивания</strong></td>
-                        <td>3-4</td>
-                        <td>до легкого утомления</td>
-                        <td>Безопаснее для плеч, чем обычные подтягивания</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Кистевой эспандер</strong></td>
-                        <td>3-4</td>
-                        <td>15-20 (на руку)</td>
-                        <td>Улучшает кровообращение в кистях</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Отжимания от скамьи</strong></td>
-                        <td>3-4</td>
-                        <td>10-15</td>
-                        <td>Снижает нагрузку на поясницу и плечи</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Приседания на скамью</strong></td>
-                        <td>3-4</td>
-                        <td>15-20</td>
-                        <td>Контролируемая амплитуда, безопасно для коленей</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Планка</strong></td>
-                        <td>3-4</td>
-                        <td>30-60 сек</td>
-                        <td>Укрепляет кор без нагрузки на позвоночник</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="accordion">
+                <!-- Упражнение 1 -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <div class="accordion-title">Горизонтальные подтягивания</div>
+                        <div class="accordion-icon"></div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="exercise-detail">
+                            <div class="exercise-info">
+                                <h4>📊 Параметры</h4>
+                                <p><strong>Подходы:</strong> 3-4</p>
+                                <p><strong>Повторения:</strong> до легкого утомления (8-15 раз)</p>
+                                <p><strong>Отдых:</strong> 60 сек между подходами</p>
+                                
+                                <h4>💪 Работающие мышцы</h4>
+                                <div class="muscle-group">
+                                    <span class="muscle-tag">Широчайшие спины</span>
+                                    <span class="muscle-tag">Ромбовидные</span>
+                                    <span class="muscle-tag">Бицепсы</span>
+                                    <span class="muscle-tag">Предплечья</span>
+                                </div>
+                            </div>
+                            <div class="exercise-tips">
+                                <h4>🎯 Техника выполнения</h4>
+                                <p>Возьмитесь за низкую перекладину, тело прямое. Подтягивайте грудную клетку к перекладине, сводя лопатки. Опускайтесь медленно.</p>
+                                
+                                <h4>👁️ Визуальный контроль</h4>
+                                <p>Тело - прямая линия от головы до пяток. Локти близко к корпусу.</p>
+                                
+                                <div class="warning">
+                                    <strong>⚠️ Важно для 42+:</strong> Не провисайте в пояснице. Если чувствуете боль в плечах - уменьшите амплитуду.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Упражнение 2 -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <div class="accordion-title">Кистевой эспандер</div>
+                        <div class="accordion-icon"></div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="exercise-detail">
+                            <div class="exercise-info">
+                                <h4>📊 Параметры</h4>
+                                <p><strong>Подходы:</strong> 3-4</p>
+                                <p><strong>Повторения:</strong> 15-20 (на каждую руку)</p>
+                                <p><strong>Отдых:</strong> 45 сек между подходами</p>
+                                
+                                <h4>💪 Работающие мышцы</h4>
+                                <div class="muscle-group">
+                                    <span class="muscle-tag">Мышцы предплечья</span>
+                                    <span class="muscle-tag">Мелкие мышцы кисти</span>
+                                    <span class="muscle-tag">Сгибатели пальцев</span>
+                                </div>
+                            </div>
+                            <div class="exercise-tips">
+                                <h4>🎯 Техника выполнения</h4>
+                                <p>Сжимайте эспандер медленно и полностью, затем так же медленно разжимайте. Не бросайте разжимание.</p>
+                                
+                                <h4>👁️ Визуальный контроль</h4>
+                                <p>Кисть двигается плавно, без рывков. Пальцы полностью разгибаются.</p>
+                                
+                                <div class="warning">
+                                    <strong>⚠️ Важно для 42+:</strong> Выберите эспандер такой жесткости, чтобы последние 2-3 повторения давались с трудом, но без боли в суставах.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Упражнение 3 -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <div class="accordion-title">Отжимания от скамьи</div>
+                        <div class="accordion-icon"></div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="exercise-detail">
+                            <div class="exercise-info">
+                                <h4>📊 Параметры</h4>
+                                <p><strong>Подходы:</strong> 3-4</p>
+                                <p><strong>Повторения:</strong> 10-15</p>
+                                <p><strong>Отдых:</strong> 60 сек между подходами</p>
+                                
+                                <h4>💪 Работающие мышцы</h4>
+                                <div class="muscle-group">
+                                    <span class="muscle-tag">Грудные мышцы</span>
+                                    <span class="muscle-tag">Трицепсы</span>
+                                    <span class="muscle-tag">Передние дельты</span>
+                                    <span class="muscle-tag">Пресс</span>
+                                </div>
+                            </div>
+                            <div class="exercise-tips">
+                                <h4>🎯 Техника выполнения</h4>
+                                <p>Руки на скамье, ноги на полу. Опускайтесь до угла 90° в локтях, затем мощно отжимайтесь вверх.</p>
+                                
+                                <h4>👁️ Визуальный контроль</h4>
+                                <p>Тело прямое, локти под углом 45° к корпусу, не разводите их в стороны.</p>
+                                
+                                <div class="warning">
+                                    <strong>⚠️ Важно для 42+:</strong> Если чувствуете дискомфорт в плечах - используйте более высокую опору (стол вместо стула).
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Добавьте остальные упражнения по аналогии -->
+                
+            </div>
             
             <div class="age-note">
                 <strong>💡 Рекомендация:</strong> Между кругами отдыхайте 2-3 минуты. Слушайте свое тело — если чувствуете усталость, увеличивайте отдых или уменьшайте количество кругов.
             </div>
-        </div>
-
-        <div class="training-plan">
-            <div class="plan-header">
-                <h2>🦵 План «День Ног» (Версия 42+)</h2>
-                <span class="plan-badge">1-2 раза в неделю</span>
-            </div>
-            
-            <p>Сбалансированная проработка всех мышечных групп ног с акцентом на безопасность суставов.</p>
-            
-            <table class="exercise-table">
-                <thead>
-                    <tr>
-                        <th>Упражнение</th>
-                        <th>Подходы</th>
-                        <th>Повторения</th>
-                        <th>Акцент</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Приседания на скамью</strong></td>
-                        <td>4</td>
-                        <td>15-20</td>
-                        <td>Квадрицепсы, ягодицы</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Выпады (укороченная амплитуда)</strong></td>
-                        <td>3</td>
-                        <td>10-12 (на ногу)</td>
-                        <td>Ягодицы, стабильность</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Ягодичный мостик</strong></td>
-                        <td>4</td>
-                        <td>15-20</td>
-                        <td>Ягодицы, бицепс бедра</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Боковые выпады</strong></td>
-                        <td>3</td>
-                        <td>10-12 (на ногу)</td>
-                        <td>Внутренняя поверхность бедра</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Махи ногой в сторону</strong></td>
-                        <td>3</td>
-                        <td>15-20 (на ногу)</td>
-                        <td>Внешняя поверхность бедра</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Подъемы на носки</strong></td>
-                        <td>4</td>
-                        <td>20-30</td>
-                        <td>Икры</td>
-                    </tr>
-                </tbody>
-            </table>
-            
-            <div class="tips">
-                <strong>📋 Важные правила для вашего возраста:</strong>
-                <ul style="margin-left: 20px; margin-top: 10px;">
-                    <li><strong>Разминка:</strong> Увеличьте до 10-15 минут с акцентом на суставную гимнастику</li>
-                    <li><strong>Заминка:</strong> Обязательная растяжка 10 минут после тренировки</li>
-                    <li><strong>Восстановление:</strong> Между силовыми тренировками - минимум 1 день отдыха</li>
-                    <li><strong>Прогресс:</strong> Увеличивайте вес/повторения постепенно, не более 10% в неделю</li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="training-plan">
-            <div class="plan-header">
-                <h2>📅 Рекомендуемое расписание</h2>
-                <span class="plan-badge">Идеальная неделя</span>
-            </div>
-            
-            <table class="exercise-table">
-                <thead>
-                    <tr>
-                        <th>День</th>
-                        <th>Тренировка</th>
-                        <th>Длительность</th>
-                        <th>Примечания</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Понедельник</strong></td>
-                        <td>«Фундамент»</td>
-                        <td>40-50 мин</td>
-                        <td>После работы, но не позже 20:00</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Вторник</strong></td>
-                        <td>Активное восстановление</td>
-                        <td>20-30 мин</td>
-                        <td>Прогулка, растяжка, легкое кардио</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Среда</strong></td>
-                        <td>«День Ног»</td>
-                        <td>50-60 мин</td>
-                        <td>Хорошо разминать колени и тазобедренные суставы</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Четверг</strong></td>
-                        <td>Полный отдых</td>
-                        <td>-</td>
-                        <td>Дайте телу восстановиться</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Пятница</strong></td>
-                        <td>«Фундамент»</td>
-                        <td>40-50 мин</td>
-                        <td>Можно уменьшить интенсивность на 20%</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Суббота</strong></td>
-                        <td>Активный отдых</td>
-                        <td>30-60 мин</td>
-                        <td>Велосипед, плавание, прогулка на природе</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Воскресенье</strong></td>
-                        <td>Полный отдых</td>
-                        <td>-</td>
-                        <td>Подготовка к новой неделе</td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
 
         <footer>
@@ -441,5 +522,32 @@
             <p style="margin-top: 10px;">© Ваш персональный фитнес-консультант</p>
         </footer>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const accordionItems = document.querySelectorAll('.accordion-item');
+            
+            accordionItems.forEach(item => {
+                const header = item.querySelector('.accordion-header');
+                
+                header.addEventListener('click', () => {
+                    // Закрываем все остальные элементы
+                    accordionItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Переключаем текущий элемент
+                    item.classList.toggle('active');
+                });
+            });
+
+            // Открываем первый элемент по умолчанию
+            if (accordionItems.length > 0) {
+                accordionItems[0].classList.add('active');
+            }
+        });
+    </script>
 </body>
 </html>
