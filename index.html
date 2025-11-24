@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ваш персональный план тренировок</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            padding: 40px 20px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .training-plan {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .training-plan:hover {
+            transform: translateY(-5px);
+        }
+
+        .plan-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #eee;
+        }
+
+        h2 {
+            color: #1a2a6c;
+            font-size: 1.8rem;
+        }
+
+        .plan-badge {
+            background: #fdbb2d;
+            color: #333;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .exercise-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .exercise-table th {
+            background: #1a2a6c;
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        .exercise-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .exercise-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .exercise-table tr:hover {
+            background: #f1f1f1;
+        }
+
+        .age-note {
+            background: #fff9e6;
+            border-left: 4px solid #fdbb2d;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .tips {
+            background: #e6f7ff;
+            border-left: 4px solid #1a2a6c;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            margin-top: 30px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .plan-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .plan-badge {
+                margin-top: 10px;
+            }
+            
+            .exercise-table {
+                font-size: 0.9rem;
+            }
+            
+            .exercise-table th, 
+            .exercise-table td {
+                padding: 8px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Ваш персональный план тренировок</h1>
+            <p class="subtitle">Специально адаптирован с учетом вашего возраста и целей</p>
+        </header>
+
+        <div class="training-plan">
+            <div class="plan-header">
+                <h2>🏋️ План «Фундамент» (Версия 42+)</h2>
+                <span class="plan-badge">2-3 раза в неделю</span>
+            </div>
+            
+            <p>Круговая тренировка всего тела. Выполняйте упражнения одно за другим, затем отдохните 2-3 минуты и повторите круг.</p>
+            
+            <table class="exercise-table">
+                <thead>
+                    <tr>
+                        <th>Упражнение</th>
+                        <th>Подходы</th>
+                        <th>Повторения</th>
+                        <th>Особенности для 42+</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Австралийские подтягивания</strong></td>
+                        <td>3-4</td>
+                        <td>до легкого утомления</td>
+                        <td>Безопаснее для плеч, чем обычные подтягивания</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Кистевой эспандер</strong></td>
+                        <td>3-4</td>
+                        <td>15-20 (на руку)</td>
+                        <td>Улучшает кровообращение в кистях</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Отжимания от скамьи</strong></td>
+                        <td>3-4</td>
+                        <td>10-15</td>
+                        <td>Снижает нагрузку на поясницу и плечи</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Приседания на скамью</strong></td>
+                        <td>3-4</td>
+                        <td>15-20</td>
+                        <td>Контролируемая амплитуда, безопасно для коленей</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Планка</strong></td>
+                        <td>3-4</td>
+                        <td>30-60 сек</td>
+                        <td>Укрепляет кор без нагрузки на позвоночник</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="age-note">
+                <strong>💡 Рекомендация:</strong> Между кругами отдыхайте 2-3 минуты. Слушайте свое тело — если чувствуете усталость, увеличивайте отдых или уменьшайте количество кругов.
+            </div>
+        </div>
+
+        <div class="training-plan">
+            <div class="plan-header">
+                <h2>🦵 План «День Ног» (Версия 42+)</h2>
+                <span class="plan-badge">1-2 раза в неделю</span>
+            </div>
+            
+            <p>Сбалансированная проработка всех мышечных групп ног с акцентом на безопасность суставов.</p>
+            
+            <table class="exercise-table">
+                <thead>
+                    <tr>
+                        <th>Упражнение</th>
+                        <th>Подходы</th>
+                        <th>Повторения</th>
+                        <th>Акцент</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Приседания на скамью</strong></td>
+                        <td>4</td>
+                        <td>15-20</td>
+                        <td>Квадрицепсы, ягодицы</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Выпады (укороченная амплитуда)</strong></td>
+                        <td>3</td>
+                        <td>10-12 (на ногу)</td>
+                        <td>Ягодицы, стабильность</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ягодичный мостик</strong></td>
+                        <td>4</td>
+                        <td>15-20</td>
+                        <td>Ягодицы, бицепс бедра</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Боковые выпады</strong></td>
+                        <td>3</td>
+                        <td>10-12 (на ногу)</td>
+                        <td>Внутренняя поверхность бедра</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Махи ногой в сторону</strong></td>
+                        <td>3</td>
+                        <td>15-20 (на ногу)</td>
+                        <td>Внешняя поверхность бедра</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Подъемы на носки</strong></td>
+                        <td>4</td>
+                        <td>20-30</td>
+                        <td>Икры</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="tips">
+                <strong>📋 Важные правила для вашего возраста:</strong>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li><strong>Разминка:</strong> Увеличьте до 10-15 минут с акцентом на суставную гимнастику</li>
+                    <li><strong>Заминка:</strong> Обязательная растяжка 10 минут после тренировки</li>
+                    <li><strong>Восстановление:</strong> Между силовыми тренировками - минимум 1 день отдыха</li>
+                    <li><strong>Прогресс:</strong> Увеличивайте вес/повторения постепенно, не более 10% в неделю</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="training-plan">
+            <div class="plan-header">
+                <h2>📅 Рекомендуемое расписание</h2>
+                <span class="plan-badge">Идеальная неделя</span>
+            </div>
+            
+            <table class="exercise-table">
+                <thead>
+                    <tr>
+                        <th>День</th>
+                        <th>Тренировка</th>
+                        <th>Длительность</th>
+                        <th>Примечания</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Понедельник</strong></td>
+                        <td>«Фундамент»</td>
+                        <td>40-50 мин</td>
+                        <td>После работы, но не позже 20:00</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Вторник</strong></td>
+                        <td>Активное восстановление</td>
+                        <td>20-30 мин</td>
+                        <td>Прогулка, растяжка, легкое кардио</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Среда</strong></td>
+                        <td>«День Ног»</td>
+                        <td>50-60 мин</td>
+                        <td>Хорошо разминать колени и тазобедренные суставы</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Четверг</strong></td>
+                        <td>Полный отдых</td>
+                        <td>-</td>
+                        <td>Дайте телу восстановиться</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Пятница</strong></td>
+                        <td>«Фундамент»</td>
+                        <td>40-50 мин</td>
+                        <td>Можно уменьшить интенсивность на 20%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Суббота</strong></td>
+                        <td>Активный отдых</td>
+                        <td>30-60 мин</td>
+                        <td>Велосипед, плавание, прогулка на природе</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Воскресенье</strong></td>
+                        <td>Полный отдых</td>
+                        <td>-</td>
+                        <td>Подготовка к новой неделе</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <footer>
+            <p>💪 Помните: в 42 года качество тренировок важнее их количества. Слушайте свое тело и наслаждайтесь процессом!</p>
+            <p style="margin-top: 10px;">© Ваш персональный фитнес-консультант</p>
+        </footer>
+    </div>
+</body>
+</html>
