@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Детский фитнес-план для мальчика 10 лет</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Comic Sans MS', 'Segoe UI', cursive;
+        }
+
+        body {
+            background: linear-gradient(135deg, #4CAF50, #2196F3, #FF9800);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            padding: 30px 20px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .training-plan {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 3px solid #4CAF50;
+        }
+
+        .plan-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px dashed #4CAF50;
+        }
+
+        h2 {
+            color: #2196F3;
+            font-size: 1.6rem;
+        }
+
+        .plan-badge {
+            background: #FF9800;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+
+        .age-warning {
+            background: #FFF3E0;
+            border: 2px solid #FF9800;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: center;
+        }
+
+        .accordion {
+            margin: 20px 0;
+        }
+
+        .accordion-item {
+            background: #E8F5E8;
+            border-radius: 10px;
+            margin-bottom: 8px;
+            border: 2px solid #4CAF50;
+        }
+
+        .accordion-header {
+            padding: 15px;
+            background: #C8E6C9;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 8px;
+        }
+
+        .accordion-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #2E7D32;
+        }
+
+        .accordion-icon {
+            width: 18px;
+            height: 18px;
+            position: relative;
+        }
+
+        .accordion-icon::before,
+        .accordion-icon::after {
+            content: '';
+            position: absolute;
+            background: #2E7D32;
+        }
+
+        .accordion-icon::before {
+            width: 100%;
+            height: 2px;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+
+        .accordion-icon::after {
+            width: 2px;
+            height: 100%;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+        }
+
+        .accordion-item.active .accordion-icon::after {
+            transform: translateX(-50%) rotate(90deg);
+            opacity: 0;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: white;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 1000px;
+            padding: 15px;
+        }
+
+        .exercise-detail {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .exercise-detail {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .exercise-info, .exercise-tips {
+            padding: 12px;
+            background: #F1F8E9;
+            border-radius: 8px;
+        }
+
+        .exercise-info h4, .exercise-tips h4 {
+            color: #2196F3;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .exercise-image {
+            width: 100%;
+            height: 120px;
+            border-radius: 8px;
+            margin: 8px 0;
+            background: linear-gradient(135deg, #2196F3, #4CAF50);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            padding: 15px;
+            font-size: 0.9rem;
+        }
+
+        .muscle-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .muscle-tag {
+            background: #BBDEFB;
+            color: #1976D2;
+            padding: 3px 6px;
+            border-radius: 10px;
+            font-size: 0.7rem;
+            border: 1px solid #90CAF9;
+        }
+
+        .warning {
+            background: #FFEBEE;
+            color: #C62828;
+            padding: 8px;
+            border-radius: 6px;
+            margin-top: 8px;
+            border-left: 3px solid #C62828;
+            font-size: 0.8rem;
+        }
+
+        .fun-factor {
+            background: #E1F5FE;
+            color: #0277BD;
+            padding: 8px;
+            border-radius: 6px;
+            margin-top: 8px;
+            border-left: 3px solid #0288D1;
+            font-size: 0.8rem;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            padding: 15px;
+            margin-top: 25px;
+            font-size: 0.8rem;
+        }
+
+        .game-element {
+            background: #E3F2FD;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>🏃‍♂️ Фитнес-приключение для 10 лет</h1>
+        <p class="subtitle">Веселые и безопасные тренировки для юного спортсмена!</p>
+    </header>
+
+    <div class="age-warning">
+        <h3>⚠️ Важно для родителей!</h3>
+        <p><strong>Тренировки для детей 10 лет должны быть:</strong><br>
+            • Безопасными • Короткими • Веселыми • Без тяжелых весов</p>
+    </div>
+
+    <!-- Базовый план -->
+    <div class="training-plan">
+        <div class="plan-header">
+            <h2>🎯 Базовая тренировка (2-3 раза в неделю)</h2>
+            <span class="plan-badge">20-30 минут</span>
+        </div>
+
+        <div class="game-element">
+            <strong>🎮 Игровой элемент:</strong> Представь, что ты супергерой, готовящийся к подвигу!
+        </div>
+
+        <div class="accordion">
+            <!-- Упражнение 1 -->
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <div class="accordion-title">🦎 Ящеричные подтягивания (облегченные)</div>
+                    <div class="accordion-icon"></div>
+                </div>
+                <div class="accordion-content">
+                    <div class="exercise-detail">
+                        <div class="exercise-info">
+                            <h4>📊 Как делать:</h4>
+                            <p><strong>Подходы:</strong> 2-3</p>
+                            <p><strong>Повторения:</strong> 3-5 раз</p>
+                            <p><strong>Отдых:</strong> 60 секунд</p>
+
+                            <h4>💪 Что качаем:</h4>
+                            <div class="muscle-group">
+                                <span class="muscle-tag">Спина</span>
+                                <span class="muscle-tag">Руки</span>
+                                <span class="muscle-tag">Плечи</span>
+                            </div>
+
+                            <div class="exercise-image">
+                                🦎 Ящеричные подтягивания<br>
+                                (С поддержкой папы/мамы)
+                            </div>
+                        </div>
+                        <div class="exercise-tips">
+                            <h4>🎯 Техника:</h4>
+                            <p>Папа/мама поддерживают за ноги. Подтягивайся, пока подбородок не окажется над перекладиной.</p>
+
+                            <div class="fun-factor">
+                                <strong>🎪 Весело:</strong> Представь, что ты обезьянка на лиане!
+                            </div>
+
+                            <div class="warning">
+                                <strong>⚠️ Стоп!</strong> Не раскачивайся и не делай резких движений.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Упражнение 2 -->
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <div class="accordion-title">🐆 Отжимания кошки (с колен)</div>
+                    <div class="accordion-icon"></div>
+                </div>
+                <div class="accordion-content">
+                    <div class="exercise-detail">
+                        <div class="exercise-info">
+                            <h4>📊 Как делать:</h4>
+                            <p><strong>Подходы:</strong> 2-3</p>
+                            <p><strong>Повторения:</strong> 5-8 раз</p>
+                            <p><strong>Отдых:</strong> 45 секунд</p>
+
+                            <h4>💪 Что качаем:</h4>
+                            <div class="muscle-group">
+                                <span class="muscle-tag">Грудь</span>
+                                <span class="muscle-tag">Плечи</span>
+                                <span class="muscle-tag">Руки</span>
+                            </div>
+
+                            <div class="exercise-image">
+                                🐆 Отжимания кошки<br>
+                                (На коленях - безопасно!)
+                            </div>
+                        </div>
+                        <div class="exercise-tips">
+                            <h4>🎯 Техника:</h4>
+                            <p>Стоя на коленях, медленно опускайся и поднимайся. Спина прямая!</p>
+
+                            <div class="fun-factor">
+                                <strong>🎪 Весело:</strong> Представь, что ты котенок, который потягивается!
+                            </div>
+
+                            <div class="warning">
+                                <strong>⚠️ Стоп!</strong> Не прогибай спину и не касайся головой пола.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Упражнение 3 -->
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <div class="accordion-title">🐸 Лягушачьи приседания</div>
+                    <div class="accordion-icon"></div>
+                </div>
+                <div class="accordion-content">
+                    <div class="exercise-detail">
+                        <div class="exercise-info">
+                            <h4>📊 Как делать:</h4>
+                            <p><strong>Подходы:</strong> 2-3</p>
+                            <p><strong>Повторения:</strong> 8-12 раз</p>
+                            <p><strong>Отдых:</strong> 45 секунд</p>
+
+                            <h4>💪 Что качаем:</h4>
+                            <div class="muscle-group">
+                                <span class="muscle-tag">Ноги</span>
+                                <span class="muscle-tag">Попа</span>
+                                <span class="muscle-tag">Спина</span>
+                            </div>
+
+                            <div class="exercise-image">
+                                🐸 Лягушачьи приседания<br>
+                                (Без веса - только тело!)
+                            </div>
+                        </div>
+                        <div class="exercise-tips">
+                            <h4>🎯 Техника:</h4>
+                            <p>Приседай, отводя попу назад. Руки вперед для равновесия.</p>
+
+                            <div class="fun-factor">
+                                <strong>🎪 Весело:</strong> Квакай как лягушка при каждом приседании!
+                            </div>
+
+                            <div class="warning">
+                                <strong>⚠️ Стоп!</strong> Колени не должны выходить за носки.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Упражнение 4 -->
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <div class="accordion-title">🦥 Ленивая планка</div>
+                    <div class="accordion-icon"></div>
+                </div>
+                <div class="accordion-content">
+                    <div class="exercise-detail">
+                        <div class="exercise-info">
+                            <h4>📊 Как делать:</h4>
+                            <p><strong>Подходы:</strong> 2-3</p>
+                            <p><strong>Время:</strong> 15-30 секунд</p>
+                            <p><strong>Отдых:</strong> 30 секунд</p>
+
+                            <h4>💪 Что качаем:</h4>
+                            <div class="muscle-group">
+                                <span class="muscle-tag">Животик</span>
+                                <span class="muscle-tag">Спина</span>
+                                <span class="muscle-tag">Все тело</span>
+                            </div>
+
+                            <div class="exercise-image">
+                                🦥 Ленивая планка<br>
+                                (На коленях - легко!)
+                            </div>
+                        </div>
+                        <div class="exercise-tips">
+                            <h4>🎯 Техника:</h4>
+                            <p>Стоя на коленях и локтях, держи тело прямо. Не поднимай попу!</p>
+
+                            <div class="fun-factor">
+                                <strong>🎪 Весело:</strong> Считай вслух до 20 - это твое задание!
+                            </div>
+
+                            <div class="warning">
+                                <strong>⚠️ Стоп!</strong> Не задерживай дыхание - дыши ровно.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Игровые тренировки -->
+    <div class="training-plan">
+        <div class="plan-header">
+            <h2>🎮 Веселые игровые тренировки</h2>
+            <span class="plan-badge">Ежедневно!</span>
+        </div>
+
+        <div class="game-element">
+            <h3>🏀 Спортивные игры (30-40 минут):</h3>
+            <p>• Футбол ⚽ • Баскетбол 🏀 • Плавание 🏊‍♂️ • Езда на велосипеде 🚴‍♂️</p>
+        </div>
+
+        <div class="game-element">
+            <h3>🤸‍♂️ Полоса препятствий дома:</h3>
+            <p>• Пройти под стульями 🪑 • Перепрыгнуть подушки 🛏️<br>
+                • Проползти тоннель из одеял 🛌 • Пройти по линии 🎯</p>
+        </div>
+    </div>
+
+    <!-- Важные правила -->
+    <div class="training-plan">
+        <div class="plan-header">
+            <h2>📋 Золотые правила для родителей</h2>
+            <span class="plan-badge">Важно!</span>
+        </div>
+
+        <div class="age-warning">
+            <h3>✅ Что МОЖНО:</h3>
+            <p>• Тренироваться 2-3 раза в неделю по 20-30 минут<br>
+                • Играть в спортивные игры ежедневно<br>
+                • Делать упражнения с весом собственного тела<br>
+                • Ходить на плавание, единоборства, гимнастику</p>
+
+            <h3>❌ Что НЕЛЬЗЯ:</h3>
+            <p>• Поднимать тяжелые веса (гантели, штанги)<br>
+                • Тренироваться до изнеможения<br>
+                • Делать упражнения через боль<br>
+                • Пропускать разминку и заминку</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>🌟 Главное - чтобы тренировки приносили радость и пользу! 🌟</p>
+        <p style="margin-top: 10px;">© Веселый фитнес для детей</p>
+    </footer>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const accordionItems = document.querySelectorAll('.accordion-item');
+
+        accordionItems.forEach(item => {
+            const header = item.querySelector('.accordion-header');
+
+            header.addEventListener('click', () => {
+                accordionItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+
+                item.classList.toggle('active');
+            });
+        });
+    });
+</script>
+</body>
+</html>
