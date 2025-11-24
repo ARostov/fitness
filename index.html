@@ -78,6 +78,30 @@
             font-size: 0.9rem;
         }
 
+        .warmup-cooldown-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        @media (max-width: 768px) {
+            .warmup-cooldown-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .warmup-section, .cooldown-section {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid #1a2a6c;
+        }
+
+        .cooldown-section {
+            border-left-color: #b21f1f;
+        }
+
         .exercise-table {
             width: 100%;
             border-collapse: collapse;
@@ -120,6 +144,27 @@
             border-radius: 0 8px 8px 0;
         }
 
+        .exercise-list {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .exercise-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .exercise-time {
+            background: #1a2a6c;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+        }
+
         footer {
             text-align: center;
             color: white;
@@ -156,6 +201,55 @@
             <p class="subtitle">Специально адаптирован с учетом вашего возраста и целей</p>
         </header>
 
+        <!-- Блок разминки и заминки -->
+        <div class="training-plan">
+            <div class="plan-header">
+                <h2>🔥 Разминка и 🧘 Заминка</h2>
+                <span class="plan-badge">Обязательно перед и после тренировки</span>
+            </div>
+
+            <div class="warmup-cooldown-grid">
+                <!-- Разминка -->
+                <div class="warmup-section">
+                    <h3 style="color: #1a2a6c; margin-bottom: 15px;">🔥 Разминка (10-15 минут)</h3>
+                    <p><strong>Цель:</strong> Подготовить суставы, мышцы и сердечно-сосудистую систему к нагрузке</p>
+                    
+                    <ul class="exercise-list">
+                        <li>Легкое кардио (ходьба на месте, бег с низкой интенсивностью) <span class="exercise-time">3-5 мин</span></li>
+                        <li>Вращения головой (медленно, без запрокидывания) <span class="exercise-time">1 мин</span></li>
+                        <li>Вращения плечами (вперед и назад) <span class="exercise-time">1 мин</span></li>
+                        <li>Вращения локтями и кистями <span class="exercise-time">1 мин</span></li>
+                        <li>Вращения тазом и бедрами <span class="exercise-time">2 мин</span></li>
+                        <li>Вращения коленями и голеностопами <span class="exercise-time">2 мин</span></li>
+                        <li>Динамическая растяжка (махи ногами, выпады) <span class="exercise-time">2 мин</span></li>
+                        <li>Легкие подводящие подходы (1-2 подхода с минимальной нагрузкой) <span class="exercise-time">2 мин</span></li>
+                    </ul>
+                </div>
+
+                <!-- Заминка -->
+                <div class="cooldown-section">
+                    <h3 style="color: #b21f1f; margin-bottom: 15px;">🧘 Заминка (10 минут)</h3>
+                    <p><strong>Цель:</strong> Восстановить дыхание, растянуть работавшие мышцы, ускорить восстановление</p>
+                    
+                    <ul class="exercise-list">
+                        <li>Медленная ходьба на месте с глубоким дыханием <span class="exercise-time">2 мин</span></li>
+                        <li>Растяжка грудных мышц (у стены/дверного проема) <span class="exercise-time">1 мин</span></li>
+                        <li>Растяжка трицепса и плеч <span class="exercise-time">1 мин</span></li>
+                        <li>Наклоны вперед к ногам (растяжка спины и задней поверхности бедра) <span class="exercise-time">1 мин</span></li>
+                        <li>Растяжка квадрицепсов (стоя) <span class="exercise-time">1 мин</span></li>
+                        <li>Растяжка ягодичных мышц (сидя) <span class="exercise-time">1 мин</span></li>
+                        <li>Растяжка икроножных мышц <span class="exercise-time">1 мин</span></li>
+                        <li>Глубокое диафрагмальное дыхание лежа на спине <span class="exercise-time">2 мин</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="age-note">
+                <strong>💡 Особенно важно в 42+:</strong> Никогда не пропускайте разминку и заминку! Это предотвращает травмы, 
+                уменьшает крепатуру и ускоряет восстановление. Уделяйте особое внимание суставам, которые будут работать на тренировке.
+            </div>
+        </div>
+
         <div class="training-plan">
             <div class="plan-header">
                 <h2>🏋️ План «Фундамент» (Версия 42+)</h2>
@@ -175,7 +269,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><strong>Австралийские подтягивания</strong></td>
+                        <td><strong>Горизонтальные подтягивания</strong></td>
                         <td>3-4</td>
                         <td>до легкого утомления</td>
                         <td>Безопаснее для плеч, чем обычные подтягивания</td>
